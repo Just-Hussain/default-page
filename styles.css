@@ -1,0 +1,168 @@
+@font-face {
+    font-family: header;
+    src: url(fonts/header.ttf);
+}
+
+@font-face {
+    font-family: flamencoLight;
+    src: url(fonts/flamencolight.ttf);
+}
+
+@font-face {
+    font-family: flamencoRegular;
+    src: url(fonts/flamencoregular.ttf);
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #292D3E;
+}
+
+
+body {
+  font-size: 50px;
+  color: #A6ACCD;
+}
+
+header,
+div {
+	box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+    font-family: header;
+    width: 100%;
+    font-size: 70px;
+    text-align: center;
+    padding-top: 2%;
+    margin-bottom: 2%;
+}
+
+a:visited {
+    color: #A6ACCD;
+    text-decoration: none;
+}
+
+a:link {
+    color: #A6ACCD;
+    text-decoration: none;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.card-header {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.card-name {
+    font-family: flamencoRegular;
+    border-bottom: 0.05em solid #ab47bc;
+    margin-right: 0.5em;
+}
+button {
+    font-size: 0.5em;
+    transition: 500ms;
+    background: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    font-size: 1em;
+    transition: 500ms;
+    color: #ab47bc;
+}
+
+.card-inner {
+    font-family: flamencoLight;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.card-inner a {
+    margin-bottom: 5%;
+    transition: 500ms;
+}
+
+.card-inner a:hover {
+    font-size: 1.3em;
+    transition: 500ms;
+    color: #ab47bc;
+    background-color: inherit;
+}
+
+.modal {
+    background: inherit;
+    position: fixed;
+    bottom: -300px;
+    right: 40%;
+    left: auto;
+    top: auto;
+    border: 0.05em solid #ab47bc;
+    transition: 500ms;
+    border-radius: 20px;
+}
+
+.name-in,
+.url-in {
+    font-family: flamencoLight;
+    font-size: 30px;
+    text-align: center;
+    text-emphasis: bold;
+    margin-bottom: 2em;
+    background: inherit;
+    border: 0.05em solid #3C435E;
+    border-radius: 50px;
+
+    color: #ab47bc;
+}
+
+.save-btn {
+    color: #A6ACCD;
+    font-family: flamencoLight;
+}
+
+.modal.show {
+    bottom: 100px;
+}
+
+.modal .modal-content {
+    width: 300px;
+    padding: 20px;
+    
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.add-card-btn {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    right: auto;
+    top: auto;
+    font-family: flamencoRegular;
+    color: #A6ACCD;
+}
