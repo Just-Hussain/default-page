@@ -11,7 +11,7 @@ let model = {
     addLinkCaller: null
 };
 
-let octopus = {
+let controller = {
     init: function() {
         model.cards = JSON.parse(localStorage.getItem('cards'));
         if (model.cards === null) {
@@ -95,8 +95,8 @@ let cardView = {
             let addLink_elem = document.createElement('button');
             addLink_elem.className = 'add-link-btn fas fa-plus';
             addLink_elem.addEventListener('click', function() {
-                octopus.getAddLinkModalElem().classList.toggle('show');
-                octopus.setAddLinkCaller(obj);
+                controller.getAddLinkModalElem().classList.toggle('show');
+                controller.setAddLinkCaller(obj);
                 if (addCardView.addCardModal_elem.classList.contains('show')) {
                     addCardView.addCardModal_elem.classList.toggle('show');
                 }
@@ -120,7 +120,7 @@ let cardView = {
         obj.cardOuter_elem.appendChild(obj.cardHeader_elem);
         obj.cardOuter_elem.appendChild(obj.cardInner_elem);
 
-        octopus.getContentElem().appendChild(obj.cardOuter_elem);
+        controller.getContentElem().appendChild(obj.cardOuter_elem);
     },
 
     createLink: function(link) {
@@ -144,9 +144,9 @@ let contentView = {
 
     render: function() {
     
-        for (let i = 0; i < octopus.getCards().length; i++) {
-            cardView.init(octopus.getCards()[i])
-            cardView.render(octopus.getCards()[i])
+        for (let i = 0; i < controller.getCards().length; i++) {
+            cardView.init(controller.getCards()[i])
+            cardView.render(controller.getCards()[i])
         }
     }
 };
@@ -177,12 +177,12 @@ let addCardView = {
         this.save_elem.addEventListener('click', (function(nameIn_elem, modal) {
             return function() {
                 if (nameIn_elem.value !== '') {
-                    octopus.getCards().push(new Card(nameIn_elem.value));
+                    controller.getCards().push(new Card(nameIn_elem.value));
                     nameIn_elem.value = '';
                     contentView.render();
                     modal.classList.toggle('show');
 
-                    localStorage.setItem('cards', JSON.stringify(octopus.getCards()));
+                    localStorage.setItem('cards', JSON.stringify(controller.getCards()));
                 }
             }
         })(this.nameIn_elem, this.addCardModal_elem));
@@ -205,13 +205,13 @@ let addLinkView = {
         this.save_elem.addEventListener('click', (function(nameIn_elem, urlIn_elem, modal) {
             return function() {
                 if ((nameIn_elem.value && urlIn_elem) !== '') {
-                    cardView.addLink(nameIn_elem.value, urlIn_elem.value, octopus.getAddLinkCaller());
+                    cardView.addLink(nameIn_elem.value, urlIn_elem.value, controller.getAddLinkCaller());
                     nameIn_elem.value = '';
                     urlIn_elem.value = '';
                     contentView.render();
                     modal.classList.toggle('show');
 
-                    localStorage.setItem('cards', JSON.stringify(octopus.getCards()));
+                    localStorage.setItem('cards', JSON.stringify(controller.getCards()));
                 }
             }
         })(this.nameIn_elem, this.urlIn_elem, this.addLinkModal_elem));
@@ -229,4 +229,4 @@ let shortcuts = {
     }
 };
 
-octopus.init();
+controller.init();
