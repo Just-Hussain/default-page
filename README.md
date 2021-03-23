@@ -1,6 +1,8 @@
 # default-page
 A (to some extent) customizable simple page for new tabs and such.
 
+![example](https://imgur.com/lDKtNvZ)
+
 # Setup
 To set the page up on **Chrome**:
 - Download the files to your machine.
